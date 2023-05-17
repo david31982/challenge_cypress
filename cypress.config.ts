@@ -4,7 +4,7 @@ const cucumber = require('cypress-cucumber-preprocessor').default
 module.exports = defineConfig({
   viewportHeight: 1080,
   viewportWidth: 1920,
-  watchForFileChanges: false,
+  watchForFileChanges: true,
   chromeWebSecurity: false,
   retries: 0,
   e2e: {
