@@ -14,12 +14,7 @@ import {
     let email: string;
     let passwd: string;
     let idUser: string;
-    let optionCurrency: string
-    let registrationMessage: string
-    let wrongPasswdMessage: string
-    let wrongEmailMessage: string
-
-    let ramdom = Math.random() * 7;
+    
 
     before(() => {
        cy.clearCookies() // Clear cookies for the currrent domain
@@ -30,9 +25,7 @@ import {
 
        email = `david31982@gmail.com`;
        passwd = "Test123*+";              
-       idUser = "id 30166710"
-       wrongPasswdMessage = "Password must be strictly repeated."
-       wrongEmailMessage = "This email has been used for registration already. Please contact customer support."
+       idUser = "id 30166710"       
     
       });
 
@@ -49,13 +42,14 @@ import {
         return false;
         });
         cy.visit("/", {failOnStatusCode: false}); 
-        cy.wait(6000) 
+        
         indexPage.verifySlideIndex();
         tootipPage.closeTootip();
         indexPage.btnToSign(); 
-        loginPage.doLogin(email, passwd);
-        cy.wait(6000)
+        loginPage.doLogin(email, passwd);        
         indexPage.verifyLogin(idUser);
+        indexPage.btnSelectRamdomGame()
+        
 
       });
     });

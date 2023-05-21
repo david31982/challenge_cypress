@@ -47,12 +47,10 @@ import {
         console.log("error", e.message);
         return false;
         });
-  cy.visit("/", {failOnStatusCode: false}); 
-  cy.wait(8000)
+  cy.visit("/", {failOnStatusCode: false});   
   tootipPage.closeTootip();
   indexPage.btnTosignup();
-  userFormPage.signIn(email, passwd, optionCurrency);
-  cy.wait(80000)
+  userFormPage.signIn(email, passwd, optionCurrency);  
   userFormPage.verifyRegistration(registrationMessage);  
 
       });
